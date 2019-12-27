@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
+    tools:context=".Signin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtphn"
+            android:hint="Phone Number"
+            android:textColor="@android:color/white"
+            android:text="01855788"
+            android:textSize="34sp"
+            android:inputType="phone"
+
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtpass"
+            android:hint="Password"
+            android:textColor="@android:color/white"
+            android:text="1234"
+            android:textSize="34sp"
+            android:inputType="textPassword"
+
+            />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnSigIn"
+        android:text="Sign In"
+        android:background="@color/btnSignupActive"
+        android:textColor="@android:color/white"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shadowColor="@android:color/black"
+        android:layout_margin="8dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
+
+</RelativeLayout>
