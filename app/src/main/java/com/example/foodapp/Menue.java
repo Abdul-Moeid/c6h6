@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import static com.example.foodapp.R.id.ben1;
 
 public class Menue extends AppCompatActivity {
     ImageView ben,ind,chin,drk,fast,des;
+    Button mod;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +23,14 @@ public class Menue extends AppCompatActivity {
          drk= this.<ImageView>findViewById(R.id.drn1);
          fast= this.<ImageView>findViewById(R.id.fst1);
          des= this.<ImageView>findViewById(R.id.des1);
+         mod = this.<Button>findViewById(R.id.button);
         ben.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent signin = new Intent(Menue.this,foodlist.class);
                 signin.putExtra("key","Bengali");
                 startActivity(signin);
-                finish();
+
             }
         });
         ind.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +39,7 @@ public class Menue extends AppCompatActivity {
                 Intent signin = new Intent(Menue.this,foodlist.class);
                 signin.putExtra("key","Indian");
                 startActivity(signin);
-                finish();
+
             }
         });
         chin.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +48,7 @@ public class Menue extends AppCompatActivity {
                 Intent signin = new Intent(Menue.this,foodlist.class);
                 signin.putExtra("key","Chineses");
                 startActivity(signin);
-                finish();
+
             }
         });
         drk.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +57,7 @@ public class Menue extends AppCompatActivity {
                 Intent signin = new Intent(Menue.this,foodlist.class);
                 signin.putExtra("key","Drinks");
                 startActivity(signin);
-                finish();
+
             }
         });
         fast.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,7 @@ public class Menue extends AppCompatActivity {
                 Intent signin = new Intent(Menue.this,foodlist.class);
                 signin.putExtra("key","Fast food");
                 startActivity(signin);
-                finish();
+
             }
         });
         des.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +75,14 @@ public class Menue extends AppCompatActivity {
                 Intent signin = new Intent(Menue.this,foodlist.class);
                 signin.putExtra("key","Dessert");
                 startActivity(signin);
-                finish();
+
+            }
+        });
+        mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menue.this,Modify.class);
+                startActivity(intent);
             }
         });
     }

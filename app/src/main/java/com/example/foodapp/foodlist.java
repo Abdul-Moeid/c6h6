@@ -1,6 +1,7 @@
 package com.example.foodapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodapp.Model.food;
 import com.example.foodapp.ViewHolder.CatagoryViewHolder;
@@ -43,7 +48,6 @@ public class foodlist extends AppCompatActivity {
         }
         database = FirebaseDatabase.getInstance();
         reference= database.getReference(type);
-
         recycle=this.<RecyclerView>findViewById(R.id.recycle);
         recycle.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -74,6 +78,22 @@ public class foodlist extends AppCompatActivity {
         adapter.startListening();
         adapter.notifyDataSetChanged();
         recycle.setAdapter(adapter);
+
+    }
+
+    //update
+    private void updatedialog(String name, String price){
+        AlertDialog.Builder dialogbuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogview = inflater.inflate(R.layout.update_category,null);
+        dialogbuilder.setView(dialogview);
+        EditText editText1 = dialogview.<EditText>findViewById(R.id.editText1);
+        EditText editText2 = dialogview.<EditText>findViewById(R.id.editText2);
+        Button update = dialogview.<Button>findViewById(R.id.button1);
+        AlertDialog alertDialog = dialogbuilder.create();
+        alertDialog.show();
+
+
 
     }
 }
