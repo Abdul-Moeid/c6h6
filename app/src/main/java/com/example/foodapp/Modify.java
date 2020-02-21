@@ -3,6 +3,7 @@ package com.example.foodapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +12,9 @@ import android.widget.Toast;
 import com.example.foodapp.Model.food;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Modify extends AppCompatActivity {
     TextView name, price, category,dcat,category_name,dcatnm;
@@ -35,7 +39,8 @@ public class Modify extends AppCompatActivity {
             public void onClick(View v) {
                 final DatabaseReference table_cat = database.getReference(category_name.getText().toString());
                 food  item = new food(name.getText().toString(),price.getText().toString());
-                table_cat.child(category.getText().toString()).setValue(item);
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()); //getting current time
+                table_cat.child(timeStamp).setValue(item);
                 Toast.makeText(Modify.this, "Item is added successfully!", Toast.LENGTH_SHORT).show();
                 finish();
             }
