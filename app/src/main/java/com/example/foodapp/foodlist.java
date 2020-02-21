@@ -25,14 +25,19 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.common.api.internal.BaseImplementation;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+
 public class foodlist extends AppCompatActivity {
     RecyclerView recycle;
     RecyclerView.LayoutManager layoutManager;
     FirebaseRecyclerAdapter<food,CatagoryViewHolder> adapter;
     FirebaseDatabase database;
     DatabaseReference reference;
-    //Bundle b = getIntent().getExtras();
-   // String type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +66,21 @@ public class foodlist extends AppCompatActivity {
                 .setQuery(reference, food.class).build();
 
         adapter = new FirebaseRecyclerAdapter<food, CatagoryViewHolder>(options) {
+
             @Override
-            protected void onBindViewHolder(@NonNull CatagoryViewHolder catagoryViewHolder, int i, @NonNull food food) {
+            protected void onBindViewHolder(@NonNull CatagoryViewHolder catagoryViewHolder, final int i, @NonNull final food food) {
                 catagoryViewHolder.name.setText(food.getName());
                 catagoryViewHolder.price.setText(food.getPrice());
+                catagoryViewHolder.layout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Log.d("foodlistt",foods.toString());
+                        //Log.d("iarman",);
+                        Toast.makeText(foodlist.this,"click"+i,Toast.LENGTH_SHORT).show();
+                        //foods.get(i);
+
+                    }
+                });
             }
 
             @NonNull

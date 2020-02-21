@@ -3,10 +3,20 @@ package com.example.foodapp.Model;
 public class food {
     private String Name;
     private  String Price;
+    private String Key;
 
-    public food(String name, String price) {
+    public String getKey() {
+        return Key;
+    }
+
+    public void setKey(String key) {
+        Key = key;
+    }
+
+    public food(String name, String price, String key) {
         Name = name;
         Price = price;
+        Key = key;
     }
 
     public food() {

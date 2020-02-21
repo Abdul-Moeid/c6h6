@@ -38,8 +38,8 @@ public class Modify extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final DatabaseReference table_cat = database.getReference(category_name.getText().toString());
-                food  item = new food(name.getText().toString(),price.getText().toString());
-                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()); //getting current time
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());//getting current time
+                food  item = new food(name.getText().toString(),price.getText().toString(),timeStamp);
                 table_cat.child(timeStamp).setValue(item);
                 Toast.makeText(Modify.this, "Item is added successfully!", Toast.LENGTH_SHORT).show();
                 finish();
@@ -49,7 +49,7 @@ public class Modify extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final DatabaseReference table_cat = database.getReference(category_name.getText().toString());
-                food  item = new food(name.getText().toString(),price.getText().toString());
+                food  item = new food(name.getText().toString(),price.getText().toString(),category.getText().toString());
                 table_cat.child(category.getText().toString()).setValue(item);
                 Toast.makeText(Modify.this, "Item is updated successfully!", Toast.LENGTH_SHORT).show();
                 finish();
